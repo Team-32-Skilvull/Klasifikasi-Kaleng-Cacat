@@ -1,4 +1,4 @@
-# Klasifikasi Cacat Kaleng Minuman Menggunakan
+# Klasifikasi Cacat Kaleng Minuman Menggunakan CNN
 
 Proyek ini bertujuan untuk mengembangkan aplikasi web real-time yang dapat mendeteksi cacat pada kemasan kaleng minuman menggunakan kamera. Aplikasi ini dibangun dengan Streamlit dan TensorFlow, serta menggunakan model deep learning untuk klasifikasi cacat.
 
