@@ -53,7 +53,7 @@ Aplikasi web dikembangkan menggunakan Streamlit, memungkinkan pengguna untuk:
 
 ## Cara Penggunaan
 Untuk menjalankan aplikasi web:
-1. Melakukan Register
+##1. Melakukan Register
    ![image](https://github.com/Team-32-Skilvull/Klasifikasi-Kaleng-Cacat/assets/82027322/26c94c94-0914-4372-939e-54be38628213)
 
    
