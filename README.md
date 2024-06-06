@@ -55,11 +55,17 @@ Aplikasi web dikembangkan menggunakan Streamlit, memungkinkan pengguna untuk:
 Untuk menjalankan aplikasi web:
 1. Melakukan Register
    ![image](https://github.com/Team-32-Skilvull/Klasifikasi-Kaleng-Cacat/assets/82027322/26c94c94-0914-4372-939e-54be38628213)
-2. Melakukan Login
+
+   
+3. Melakukan Login
    ![image](https://github.com/Team-32-Skilvull/Klasifikasi-Kaleng-Cacat/assets/82027322/5fae5fff-ed1f-4efa-9b46-9870b855f7a0)
-3. Memilih menu Real-Time Classification atau Upload Picture Jika memilih menu Real-Time Classification maka klik START untuk menjalankan cameranya jika ingin mengganti Device/Cameranya maka klik SELECT DEVICE
+
+   
+5. Memilih menu Real-Time Classification atau Upload Picture Jika memilih menu Real-Time Classification maka klik START untuk menjalankan cameranya jika ingin mengganti Device/Cameranya maka klik SELECT DEVICE
    ![Screenshot 2024-06-06 205430](https://github.com/Team-32-Skilvull/Klasifikasi-Kaleng-Cacat/assets/82027322/a4871ca1-5064-4487-8b54-ced4a1200e8f)
-4. memilih menu  Upload Picture maka klik BROWSE files untuk mengupload gambar kaleng minuman yang akan di klasfikasi 
+
+   
+7. memilih menu  Upload Picture maka klik BROWSE files untuk mengupload gambar kaleng minuman yang akan di klasfikasi 
    ![image](https://github.com/Team-32-Skilvull/Klasifikasi-Kaleng-Cacat/assets/82027322/ede84cd7-eea8-4d86-b3e4-58926311aa4b)
 
 
