@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
 from PIL import Image
-import joblib  # Pastikan untuk mengimpor joblib dengan benar
+import joblib
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, WebRtcMode, RTCConfiguration
 import logging
 
@@ -47,6 +47,7 @@ def preprocess_image(image):
     except Exception as e:
         logging.error(f"Error preprocessing image: {e}")
         st.error(f"Error preprocessing image: {e}")
+        return None
 
 def predict(image):
     try:
@@ -60,6 +61,7 @@ def predict(image):
     except Exception as e:
         logging.error(f"Error during prediction: {e}")
         st.error(f"Error during prediction: {e}")
+        return None
 
 def detect_can(frame):
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -94,9 +96,10 @@ class VideoTransformer(VideoTransformerBase):
             x, y, w, h = bbox
             can_roi = img[y:y+h, x:x+w]
             result = predict(can_roi)
-            cv2.putText(img, result, (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
-            cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
-            logging.info(f"Hasil klasifikasi: {result}")
+            if result:
+                cv2.putText(img, result, (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+                cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
+                logging.info(f"Hasil klasifikasi: {result}")
 
         return img
 
@@ -141,15 +144,23 @@ def app():
     mode = st.radio("Pilih mode:", ('Klasifikasi Real-Time', 'Unggah Gambar'))
 
     if mode == 'Klasifikasi Real-Time':
+        rtc_configuration = RTCConfiguration({
+            "iceServers": [
+                {"urls": ["stun:stun.l.google.com:19302"]},
+                {"urls": ["stun:stun1.l.google.com:19302"]},
+                {"urls": ["stun:stun2.l.google.com:19302"]},
+                {"urls": ["stun:stun3.l.google.com:19302"]},
+                {"urls": ["stun:stun4.l.google.com:19302"]}
+            ]
+        })
+
         webrtc_streamer(
             key="example",
             mode=WebRtcMode.SENDRECV,
             video_processor_factory=VideoTransformer,
             media_stream_constraints={"video": True, "audio": False},
             async_processing=True,
-            rtc_configuration=RTCConfiguration(
-                {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
-            ),
+            rtc_configuration=rtc_configuration,
         )
     elif mode == 'Unggah Gambar':
         uploaded_file = st.file_uploader("Pilih gambar...", type=["jpg", "png", "jpeg"])
@@ -176,3 +187,4 @@ else:
         login()
     else:
         register()
+
