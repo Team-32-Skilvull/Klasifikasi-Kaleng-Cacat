@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
 from PIL import Image
-import joblib
+import joblib  # Pastikan untuk mengimpor joblib dengan benar
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, WebRtcMode, RTCConfiguration
 import logging
 
@@ -147,7 +147,9 @@ def app():
             video_processor_factory=VideoTransformer,
             media_stream_constraints={"video": True, "audio": False},
             async_processing=True,
-            rtc_configuration=RTC_CONFIGURATION,
+            rtc_configuration=RTCConfiguration(
+                {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+            ),
         )
     elif mode == 'Unggah Gambar':
         uploaded_file = st.file_uploader("Pilih gambar...", type=["jpg", "png", "jpeg"])
