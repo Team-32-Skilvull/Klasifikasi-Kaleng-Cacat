@@ -137,7 +137,7 @@ def register():
 
 # Fungsi untuk halaman klasifikasi
 def app():
-    st.title("Can Classifier")
+    st.title("CannerVision")
     st.write(f"Selamat datang, {st.session_state['username']}!")
     st.write("Aplikasi ini mengklasifikasikan kaleng sebagai cacat atau tidak cacat.")
 
