@@ -5,7 +5,6 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 import joblib
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, WebRtcMode, RTCConfiguration
-import logging
 
 # Inisialisasi logging
 logging.basicConfig(level=logging.INFO)
