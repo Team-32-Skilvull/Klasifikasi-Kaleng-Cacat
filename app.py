@@ -187,4 +187,3 @@ else:
         login()
     else:
         register()
-apakah gini
