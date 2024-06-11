@@ -6,12 +6,6 @@ from PIL import Image
 import joblib
 from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, WebRtcMode, RTCConfiguration
 import logging
-import gdown
-
-# URL file Google Drive yang dapat diunduh langsung
-url = 'https://drive.google.com/uc?id=1BTTEyTNn3y-xjegOoXIb5mOx5dmQLqQP'
-output = 'model.h5'
-gdown.download(url, output, quiet=False)
 
 # Inisialisasi logging
 logging.basicConfig(level=logging.INFO)
@@ -193,3 +187,4 @@ else:
         login()
     else:
         register()
+apakah gini
